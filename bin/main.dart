@@ -1,6 +1,10 @@
 void main(List<String> arguments) {
   Cachorro cachorro = new Cachorro('pretinha', 6, 6);
   Gato gato = new Gato('Jackie', 0.6);
+
+  print(cachorro);
+  print('');
+  print(gato);
 }
 
 class Animal {
@@ -28,10 +32,16 @@ class Cachorro extends Animal {
     fofura += 10;
     print('Fofura do ${this.nome} aumentou para ${this.fofura}!!!');
   }
+
+  @override
+  String toString() => 'Cachorro.\nNome: ${this.nome}\nPeso: ${this.peso}kg\nSom: ${this.som}\nFofura: ${this.fofura}';
 }
 
 class Gato extends Animal {
   Gato(String nome, double peso) : super(nome, peso, 'Miau! Miau!');
+
+  @override
+  String toString() => 'Gato.\nNome: ${this.nome}\nPeso: ${this.peso}kg\nSom: ${this.som}\nAmigável? ${this.estaAmigavel() ? "Sim" : "Não"}';
 
   bool estaAmigavel() => true;
 }
