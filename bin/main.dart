@@ -1,20 +1,28 @@
 void main(List<String> arguments) {
-  print('Hello world!');
+  Cachorro cachorro = new Cachorro('pretinha', 6, 6);
+  Gato gato = new Gato('Jackie', 0.6);
 }
 
-
-class Cachorro {
+class Animal {
   String nome;
+  String som;
   double peso;
-  int fofura;
+
+  Animal(this.nome, this.peso, this.som);
 
   void comer() {
     print('${this.nome} comeu');
   }
 
-  void latir() {
-    print('Au! Au!');
+  void fazerSom() {
+    print(this.som);
   }
+}
+
+class Cachorro extends Animal {
+  int fofura;
+
+  Cachorro(String nome, double peso, this.fofura) : super(nome, peso, 'Au! Au!');
 
   void brincar() {
     fofura += 10;
@@ -22,17 +30,8 @@ class Cachorro {
   }
 }
 
-class Gato {
-  String nome;
-  double peso;
-
-  void comer() {
-    print('${this.nome} comeu');
-  }
-
-  void miar() {
-    print('Miau! Miau!');
-  }
+class Gato extends Animal {
+  Gato(String nome, double peso) : super(nome, peso, 'Miau! Miau!');
 
   bool estaAmigavel() => true;
 }
